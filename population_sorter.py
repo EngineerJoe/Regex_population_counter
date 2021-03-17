@@ -25,15 +25,17 @@ for match in re.finditer(line_regex, text):
 print(loc_dict)
 
 # This is a simple code that allows the user to search for results in the dict
-while True:
-    print(f"Choose location from list:\n{list(loc_dict.keys())}")
-    message = input("Type here > ")
-    if message in list(loc_dict.keys()):
-        print(f"What data would you like: \n{list(loc_dict[message].keys())}")
-        choice = input("Type here > ")
-        if choice in loc_dict[message]:
-            print(loc_dict[message][choice])
+
+if __name__ == "__main__":
+    while True:
+        print(f"Choose location from list:\n{list(loc_dict.keys())}")
+        message = input("Type here > ")
+        if message in list(loc_dict.keys()):
+            print(f"What data would you like: \n{list(loc_dict[message].keys())}")
+            choice = input("Type here > ")
+            if choice in loc_dict[message]:
+                print(loc_dict[message][choice])
+            else:
+                print(f"{choice} not found")
         else:
-            print(f"{choice} not found")
-    else:
-        print(f"{message} not in list")
+            print(f"{message} not in list")
